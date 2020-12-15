@@ -1,23 +1,6 @@
 # encoding: utf-8
-"""
-@time           : 2020/9/17
-@author         : liuning11@jd.com
-@file           : shell.py
-@description    : repo
 
 
-    ##########################################################
-    #
-    # user侧特征表
-    # dmc_qm.DMCQM_LHMX_COMMUNITY_FEED_DEEP_ITEM_FEATURE_I_D
-    # dmc_ll.dmcll_sr_user_lhmx_community_feed_deep_item_feature_i_d
-    #
-    # $TXPDATE
-    #
-    ##########################################################
-
-
-"""
 import sys
 import re
 
