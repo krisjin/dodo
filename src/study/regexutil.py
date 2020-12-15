@@ -1,4 +1,5 @@
 import re
+import csv
 
 # line = "Cats are smarter than dogs"
 #
@@ -16,19 +17,38 @@ import re
 #     "No match!!"
 
 
-str = '在华为商城即日起至2020年12月11日APP购买指定商品，且同一订单中只有参与活动的商品，在支付时选择银联分期，即日起至2020年12月11日,使用龙卡信用卡分期支付，按期数每月还款，可享受满3000元减100元、满2000元减50元的优惠'
+# 即日起到12月31日 每周一、周四上午9:00开始
+# 即日起到2020年10月31日23:59
+
+# str = '在华为商城即日起至2020年12月11日APP购买指定商品，且同一订单中只有参与活动的商品，在支付时选择银联分期，即日起至2020年12月11日,使用龙卡信用卡分期支付，按期数每月还款，可享受满3000元减100元、满2000元减50元的优惠'
 # str = '在华为商城即日起至2020年12月11日APP购买指定商品，且同一订单中只有参与活动的商品，在支付时选择银联分期，即日起至2020年12月11日,使用龙卡信用卡分期支付，按期数每月还款，可享受满3000元减100元、满2000元减50元的优惠'
 
-r1 = r'即日.[到|起|起至|起到|至|到至]\d{4}年\d{1,2}月\d{1,2}日'
+r1 = r'即日.[到|起|起至|起到|至|到至]*[\d{4}年]*\d{1,2}月\d{1,2}日[\d{1,2}]*:*[\d{1,2}]*'
+# r1 = r'即日.[到|起|起至|起到|至|到至]\d{4}年\d{1,2}月\d{1,2}日'
+r2 = r'[\d{4}年]*\d{1,2}月\d{1,2}日.[到|起|起至|起到|至|到至]*[\d{4}年]*\d{1,2}月\d{1,2}日[\d{1,2}]*:*[\d{1,2}]*:*[\d{1,2}]*'
 
-p = re.compile(r1)
+p = re.compile(r2)
 
-ret = ''
-allDate = p.findall(str)
-for d in allDate:
-    ret = d + ',' + ret
+csv_reader = csv.reader(open('/usr/local/gitrep/dodo/src/resources/testdata.csv', encoding='utf-8'))
 
-print(ret)
+
+
+
+for row in csv_reader:
+    allDate = p.findall(row[0])
+
+    if allDate:
+        ret = ''
+        for d in allDate:
+            ret = d + ',' + ret
+        print(ret)
+
+
+
+
+
+
+# print(ret)
 
 # line = "Cats are smarter11 22 than dogs";
 #
