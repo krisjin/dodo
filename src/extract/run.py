@@ -1,26 +1,5 @@
 # encoding: utf-8
-"""
-@time           : 2020/9/30
-@author         : shijingui@jd.com
-@file           : shell.py
-@description    : repo
 
-
-    ##########################################################
-    #
-    # 依赖的相关文章表
-    # odm.odm_cmp_nryy_ic_imagetext_element_150_i_d
-    # odm.odm_cmp_nryy_ic_community_content_i_d
-    #
-    # 输出表
-    # dmc_ll.dmcll_sr_brs_credit_cart_date_a_d
-    #
-    # $TXPDATE
-    #
-    ##########################################################
-
-
-"""
 import sys
 import re
 
